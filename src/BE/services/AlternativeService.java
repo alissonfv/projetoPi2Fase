@@ -12,5 +12,11 @@ public class AlternativeService {
         Alternative tempAlternative = new Alternative(id, question, alternative, accepted, deleted);
         alternatives.add(tempAlternative);
         return tempAlternative;
-      }
+    }
+
+    public void deleteAlternative(Alternative alternative) {
+        alternatives.remove(alternative);
+        alternative.setDeleted(true);
+        System.out.printf("Alternativa %s excluída. Situação campo deleted: %b", alternative, alternative.getDeleted());
+    }
 }

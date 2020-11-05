@@ -19,4 +19,11 @@ public class Answer {
     public Alternative getAlternativeAnswer() {
         return this.alternative; 
     }
+
+    @Override
+    public String toString() {
+        return String.format("Resposta criada\nQuestão: %s\nResposta: %s\n",
+                            getAlternativeAnswer().getAlternativeQuestion().getQuestion(), 
+                            getAlternativeAnswer());
+    }
 }

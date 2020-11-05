@@ -14,6 +14,8 @@ public class Main {
     Alternative alternative3 = alternativeService.createAlternative(1, question, "2", false, false);
     Alternative alternative4 = alternativeService.createAlternative(1, question, "5", false, false);
 
+    alternativeService.deleteAlternative(alternative4);
+
 
     System.out.println(question.toString());
 

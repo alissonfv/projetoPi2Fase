@@ -11,10 +11,10 @@ public class AnswerService {
         Answer tempAnswer = new Answer(/*student, */alternative);
         answers.add(tempAnswer);
         return tempAnswer;
-      }
+    }
     
     public void deleteAnswer(Answer answer) {
         answers.remove(answer);
-        System.out.printf("Questão removida: %s\n", answer.toString());
+        System.out.printf("Resposta removida: %s\n", answer.toString());
     }
 }

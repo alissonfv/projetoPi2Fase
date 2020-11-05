@@ -47,6 +47,16 @@ public class Alternative {
         return this.deleted;
     }
 
+    public Question getAlternativeQuestion() {
+        return this.question;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Resposta à questão '%s': '%s'\n", 
+                            getAlternativeQuestion().getQuestion(), 
+                            getAlternative());
+    }
     
 
 }
