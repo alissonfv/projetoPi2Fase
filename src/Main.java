@@ -23,10 +23,17 @@ public class Main {
     System.out.println(alternative4);
 
 
-    //createAnswer
+    // createAnswer
 
     Answer answer = answerService.createAnswer(/*student,*/alternative1);
     System.out.println(answer);
+    
+    // updateAnswer
+    answer.setAlternativeAnswer(alternative4);
+    System.out.println(alternative4);
+    System.out.println(answer.getAlternativeAnswer());
+
+    // deleteAnswer
     answerService.deleteAnswer(answer);
   }
 }

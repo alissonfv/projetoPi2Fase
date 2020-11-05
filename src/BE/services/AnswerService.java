@@ -13,12 +13,6 @@ public class AnswerService {
         return tempAnswer;
       }
     
-    // retrieve
-    // public void retrieveAnswer(Answer answer) {
-    //     código para modificar a resposta da lista
-    // }
-
-    // delete
     public void deleteAnswer(Answer answer) {
         answers.remove(answer);
         System.out.printf("Questão removida: %s\n", answer.toString());

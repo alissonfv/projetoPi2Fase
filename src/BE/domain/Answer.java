@@ -5,10 +5,18 @@ public class Answer {
     // private Duel duel;
 
     public Answer(Alternative alternative/*, Duel duel*/) {
-        this.alternative = alternative;
+        setAlternativeAnswer(alternative);
     }
 
     public Alternative getAnswer() {
         return this.alternative;
+    }
+
+    public void setAlternativeAnswer(Alternative alternative) {
+        this.alternative = alternative;
+    }
+
+    public Alternative getAlternativeAnswer() {
+        return this.alternative; 
     }
 }
