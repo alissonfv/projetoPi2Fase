@@ -13,4 +13,14 @@ public class QuestionService {
     questions.add(question1);
     return question1;
   }
+
+  public List<Question> getQuestions(){
+    return questions;
+  }
+
+  public void deleteQuestionById(Integer id){
+    questions.removeIf(x -> id.equals(x.getId()));
+    System.out.println("Questão removida , Id = " + id);
+  }
+
 }
