@@ -27,5 +27,6 @@ public class Main {
 
     Answer answer = answerService.createAnswer(/*student,*/alternative1);
     System.out.println(answer);
+    answerService.deleteAnswer(answer);
   }
 }
