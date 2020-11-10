@@ -22,71 +22,70 @@ public class FrontQuest extends JFrame {
 	}
 		
 	private void Front() {
-	JPanel buttonPanel, botaofechar;
-	JButton buttons[], botao,fecha;
-	JLabel label;
-	JScrollPane scrollPane;
-	JTextField caixa;
-	Container c = getContentPane();
+		JPanel buttonPanel, buttonClose;
+		JButton buttons[], button, close ;
+		JLabel label;
+		Container c = getContentPane();
 	
 	
 		//BOTÕES DE ALTERNATIVA
 		buttonPanel = new JPanel();
 		buttons = new JButton[5];
-
+		buttonPanel.setPreferredSize(new Dimension(300, 250));
+		buttonPanel.setBackground(Color.CYAN);
 		for (int i = 0; i < buttons.length; i++) {
-			buttons[i] = new JButton("Alternativa " + (i + 1));
-			buttonPanel.add(buttons[i]);
-			buttonPanel.setPreferredSize(new Dimension(300, 250));
-		}		
+			buttons[i] = new JButton("Alternativa " + (i + 1) + "  =   " +(i + 3) + " pedaços ");
+			buttonPanel.add(buttons[i]);		
 		buttonPanel.setLayout(new GridLayout(5, 5, 15, 5));
 		c.add(buttonPanel, BorderLayout.SOUTH);
+		}
 		
 
 		//PAINEL DE FUNDO 
 		buttonPanel = new JPanel();
-		buttonPanel.setBackground(Color.LIGHT_GRAY);
+		buttonPanel.setBackground(Color.CYAN);
 		buttonPanel.setPreferredSize(new Dimension(300, 400));
 		add(buttonPanel);
 		
 		//BOTÃO DE VOLTAR
 		buttonPanel = new JPanel();
-		botao = new JButton("Voltar Questão");
-		buttonPanel.setBackground(Color.DARK_GRAY);
+		button = new JButton("Voltar Questão");
+		buttonPanel.setBackground(Color.CYAN);
 		buttonPanel.setPreferredSize(new Dimension(200, 100));
 		buttonPanel.setLayout(new FlowLayout());
-		buttonPanel.add(botao);
+		buttonPanel.add(button);
 		add(buttonPanel, BorderLayout.WEST);
 
 		//BOTÃO DE PRÓXIMA QUESTÃO
 		buttonPanel = new JPanel();
-		botao = new JButton("Próxima Questão");
-		buttonPanel.setBackground(Color.cyan);
+		button = new JButton("Próxima Questão");
+		buttonPanel.setBackground(Color.CYAN);
 		buttonPanel.setPreferredSize(new Dimension(200, 100));
 		buttonPanel.setLayout(new FlowLayout());
-		buttonPanel.add(botao);
+		buttonPanel.add(button);
 		add(buttonPanel, BorderLayout.EAST);
 		
 		
 		//BOTÃO DE FECHAR 
-		botaofechar = new JPanel();
-		fecha = new JButton("Fechar");
-		buttonPanel.setBackground(Color.cyan);
+		buttonClose = new JPanel();
+		close = new JButton("Fechar");
+		buttonPanel.setBackground(Color.CYAN);
 		buttonPanel.setPreferredSize(new Dimension(200, 100));
-		botaofechar.add(fecha);
-		add(botaofechar, BorderLayout.NORTH);
+		buttonClose.add(close);
+		add(buttonClose, BorderLayout.NORTH);
 		//EVENTO FECHAR
-		fecha.addActionListener(new ActionListener() {
+		close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-
-		caixa = new JTextField("PERGUNTA XXX", 20);
-		caixa.setPreferredSize(new Dimension(5, 3));
+	
+		//CAIXA DE TEXTO
+		label = new JLabel( "             Uma pizza tem 8 pedaços.  Manoel comeu 1/2 pedaços, quantos pedaços sobraram? ");
+		label.setPreferredSize(new Dimension(120, 100));
 		setSize(1000, 700);
-		add(caixa);
-		
+		add(label,BorderLayout.CENTER);
+					
 		}
 		
 }//FIM CLASSE
