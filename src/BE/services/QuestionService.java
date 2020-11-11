@@ -18,8 +18,8 @@ public class QuestionService {
     return questions;
   }
 
-  public void deleteQuestionById(Integer id){
-    questions.removeIf(x -> id.equals(x.getId()));
-    System.out.println("Questão removida , Id = " + id);
+  public void deleteQuestionById(Question question){
+    questions.removeIf(x -> x.getId().equals(question.getId())); // nao vai funcionar, devemos implementar equals. n funciona pq ele vai verificar se a claasse é igual. se for ele da como true.
+    System.out.println("Questão removida , Id = " + question.getId());
   }
 }
