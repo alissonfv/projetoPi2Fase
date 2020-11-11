@@ -1,3 +1,5 @@
+package FE;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -28,13 +30,13 @@ public class FrontQuest extends JFrame {
 		Container c = getContentPane();
 	
 	
-		//BOTÕES DE ALTERNATIVA
+		//BOTï¿½ES DE ALTERNATIVA
 		buttonPanel = new JPanel();
 		buttons = new JButton[5];
 		buttonPanel.setPreferredSize(new Dimension(300, 250));
 		buttonPanel.setBackground(Color.CYAN);
 		for (int i = 0; i < buttons.length; i++) {
-			buttons[i] = new JButton("Alternativa " + (i + 1) + "  =   " +(i + 3) + " pedaços ");
+			buttons[i] = new JButton("Alternativa " + (i + 1) + "  =   " +(i + 3) + " pedaï¿½os ");
 			buttonPanel.add(buttons[i]);		
 		buttonPanel.setLayout(new GridLayout(5, 5, 15, 5));
 		c.add(buttonPanel, BorderLayout.SOUTH);
@@ -47,18 +49,18 @@ public class FrontQuest extends JFrame {
 		buttonPanel.setPreferredSize(new Dimension(300, 400));
 		add(buttonPanel);
 		
-		//BOTÃO DE VOLTAR
+		//BOTï¿½O DE VOLTAR
 		buttonPanel = new JPanel();
-		button = new JButton("Voltar Questão");
+		button = new JButton("Voltar Questï¿½o");
 		buttonPanel.setBackground(Color.CYAN);
 		buttonPanel.setPreferredSize(new Dimension(200, 100));
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(button);
 		add(buttonPanel, BorderLayout.WEST);
 
-		//BOTÃO DE PRÓXIMA QUESTÃO
+		//BOTï¿½O DE PRï¿½XIMA QUESTï¿½O
 		buttonPanel = new JPanel();
-		button = new JButton("Próxima Questão");
+		button = new JButton("Prï¿½xima Questï¿½o");
 		buttonPanel.setBackground(Color.CYAN);
 		buttonPanel.setPreferredSize(new Dimension(200, 100));
 		buttonPanel.setLayout(new FlowLayout());
@@ -66,7 +68,7 @@ public class FrontQuest extends JFrame {
 		add(buttonPanel, BorderLayout.EAST);
 		
 		
-		//BOTÃO DE FECHAR 
+		//BOTï¿½O DE FECHAR 
 		buttonClose = new JPanel();
 		close = new JButton("Fechar");
 		buttonPanel.setBackground(Color.CYAN);
@@ -81,7 +83,7 @@ public class FrontQuest extends JFrame {
 		});
 	
 		//CAIXA DE TEXTO
-		label = new JLabel( "             Uma pizza tem 8 pedaços.  Manoel comeu 1/2 pedaços, quantos pedaços sobraram? ");
+		label = new JLabel( "             Uma pizza tem 8 pedaï¿½os.  Manoel comeu 1/2 pedaï¿½os, quantos pedaï¿½os sobraram? ");
 		label.setPreferredSize(new Dimension(120, 100));
 		setSize(1000, 700);
 		add(label,BorderLayout.CENTER);
