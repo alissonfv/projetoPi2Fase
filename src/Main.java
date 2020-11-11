@@ -1,5 +1,5 @@
-import BE.domain.*;
-import BE.services.*;
+import BE.domain.Question;
+import BE.services.QuestionService;
 
 public class Main {
 
@@ -29,7 +29,7 @@ public class Main {
 
     Answer answer = answerService.createAnswer(/*student,*/alternative1);
     System.out.println(answer);
-    
+
     // updateAnswer
     answer.setAlternativeAnswer(alternative4);
     System.out.println(alternative4);
@@ -37,5 +37,11 @@ public class Main {
 
     // deleteAnswer
     answerService.deleteAnswer(answer);
+
+
+//   PARTE VICTOR FRONT END
+    JFrame frame = null;
+    frame = new FrontQuest();
+    frame.setVisible(true);
   }
 }
