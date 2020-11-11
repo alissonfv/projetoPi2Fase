@@ -21,7 +21,7 @@ public class Main {
     Alternative alternative3 = alternativeService.createAlternative(1, question, "2", false, false);
     Alternative alternative4 = alternativeService.createAlternative(1, question, "5", false, false);
 
-    Question question = questionService.createQuestion(1,"1", "xxxx", false);
+    Question question1 = questionService.createQuestion(1,"1", "xxxx", false);
 
     System.out.println(question.toString());
 
@@ -39,7 +39,6 @@ public class Main {
     System.out.println(alternative3);
     System.out.println(alternative4);
 
-
     // createAnswer
 
     Answer answer = answerService.createAnswer(/*student,*/alternative1);
@@ -52,7 +51,6 @@ public class Main {
 
     // deleteAnswer
     answerService.deleteAnswer(answer);
-
 
 //   PARTE VICTOR FRONT END
     JFrame frame = null;
