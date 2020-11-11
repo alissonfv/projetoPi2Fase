@@ -1,5 +1,11 @@
+import BE.domain.Alternative;
+import BE.domain.Answer;
 import BE.domain.Question;
+import BE.services.AlternativeService;
+import BE.services.AnswerService;
 import BE.services.QuestionService;
+import FE.FrontQuest;
+import javax.swing.JFrame;
 
 public class Main {
 
