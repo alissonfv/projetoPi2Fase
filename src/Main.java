@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 public class Main {
 
   public static void main(String[] args) {
+
     QuestionService questionService = new QuestionService();
     AnswerService answerService = new AnswerService();
     AlternativeService alternativeService = new AlternativeService();
@@ -20,16 +21,23 @@ public class Main {
     Alternative alternative3 = alternativeService.createAlternative(1, question, "2", false, false);
     Alternative alternative4 = alternativeService.createAlternative(1, question, "5", false, false);
 
-    alternativeService.deleteAlternative(alternative4);
-
+    Question question1 = questionService.createQuestion(1,"1", "xxxx", false);
 
     System.out.println(question.toString());
+
+    System.out.println(questionService.getQuestions().get(0));
+
+    System.out.println(questionService.getQuestions().size());
+
+
+    questionService.deleteQuestionById(1);
+
+    System.out.println(questionService.getQuestions().size());
 
     System.out.println(alternative1);
     System.out.println(alternative2);
     System.out.println(alternative3);
     System.out.println(alternative4);
-
 
     // createAnswer
 
@@ -43,7 +51,6 @@ public class Main {
 
     // deleteAnswer
     answerService.deleteAnswer(answer);
-
 
 //   PARTE VICTOR FRONT END
     JFrame frame = null;
