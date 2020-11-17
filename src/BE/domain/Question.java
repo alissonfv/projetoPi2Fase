@@ -7,7 +7,7 @@ public class Question {
   private String question;
   private Boolean deleted;
 
-  public Question(Integer id,String idTeacher, String question, Boolean deleted) {
+  public Question(Integer id, String idTeacher, String question, Boolean deleted) {
     this.id = id;
     this.idTeacher = idTeacher;
     this.question = question;
@@ -45,6 +45,7 @@ public class Question {
   public void setId(Integer id) {
     this.id = id;
   }
+
   @Override
   public boolean equals(Object obj) {
     if (this == obj) {
