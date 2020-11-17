@@ -2,6 +2,7 @@ package FE;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -47,6 +48,10 @@ public class QuestionPanel extends JPanel {
             }
 
         });
+
+        JScrollPane scroll = new JScrollPane(tableQuestions);
+
+        add(scroll, BorderLayout.CENTER);
     }
     
     private void createBtns() {
