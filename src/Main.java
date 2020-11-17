@@ -30,7 +30,7 @@ public class Main {
     System.out.println(questionService.getQuestions().size());
 
 
-    questionService.deleteQuestionById(1);
+    questionService.deleteQuestion(1);
 
     System.out.println(questionService.getQuestions().size());
 

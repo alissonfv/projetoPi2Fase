@@ -45,4 +45,22 @@ public class Question {
   public void setId(Integer id) {
     this.id = id;
   }
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (obj == null) {
+      return false;
+    }
+
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+
+    Question question = (Question) obj;
+    return this.id == question.id;
+
+  }
 }
