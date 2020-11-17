@@ -1,62 +1,64 @@
 package BE.domain;
 
 public class Alternative {
-    private int id;
-    private Question question;
-    private String alternative;
-    private boolean accepted; // proponho alterar para rigthAlternative (alternativa certa)
-    private boolean deleted;
 
-    public Alternative(int id, Question question, String alternative, boolean accepted, boolean deleted) {
-        this.id = id;
-        this.question = question;
-        setAlternative(alternative);
-        setAccepted(accepted);
-        setDeleted(deleted);
-    }
+  private int id;
+  private Question question;
+  private String alternative;
+  private boolean accepted; // proponho alterar para rigthAlternative (alternativa certa)
+  private boolean deleted;
 
-    public int getId() {
-        return this.id;
-    }
+  public Alternative(int id, Question question, String alternative, boolean accepted,
+      boolean deleted) {
+    this.id = id;
+    this.question = question;
+    setAlternative(alternative);
+    setAccepted(accepted);
+    setDeleted(deleted);
+  }
 
-    public int getAlternativeQuestionId() {
-        return this.question.getId();
-    }
+  public int getId() {
+    return this.id;
+  }
 
-    public void setAlternative(String alternative) {
-        this.alternative = alternative;
-    }
+  public int getAlternativeQuestionId() {
+    return this.question.getId();
+  }
 
-    public String getAlternative() {
-        return this.alternative;
-    }
+  public void setAlternative(String alternative) {
+    this.alternative = alternative;
+  }
 
-    public void setAccepted(boolean accepted) {
-        this.accepted = accepted;
-    }
+  public String getAlternative() {
+    return this.alternative;
+  }
 
-    public boolean getAccepted() {
-        return this.accepted;
-    }
+  public void setAccepted(boolean accepted) {
+    this.accepted = accepted;
+  }
 
-    public void setDeleted(boolean deleted) {
-        this.deleted = deleted;
-    }
+  public boolean getAccepted() {
+    return this.accepted;
+  }
 
-    public boolean getDeleted() {
-        return this.deleted;
-    }
+  public void setDeleted(boolean deleted) {
+    this.deleted = deleted;
+  }
 
-    public Question getAlternativeQuestion() {
-        return this.question;
-    }
+  public boolean getDeleted() {
+    return this.deleted;
+  }
 
-    @Override
-    public String toString() {
-        return String.format("Resposta à questão '%s': '%s'\n", 
-                            getAlternativeQuestion().getQuestion(), 
-                            getAlternative());
-    }
-    
+  public Question getAlternativeQuestion() {
+    return this.question;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Resposta à questão '%s': '%s'\n",
+        getAlternativeQuestion().getQuestion(),
+        getAlternative());
+  }
+
 
 }
