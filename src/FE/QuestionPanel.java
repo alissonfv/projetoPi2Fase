@@ -8,6 +8,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import BE.services.QuestionService;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -15,6 +17,7 @@ import java.awt.event.ActionListener;
 
 public class QuestionPanel extends JPanel {
     HomeFrame frame;
+    QuestionTableModel tableModel;
 
     private JButton btnCreate;
     private JButton btnChange;
@@ -32,6 +35,7 @@ public class QuestionPanel extends JPanel {
     }
 
     private void createTable() {
+        tableModel = new QuestionTableModel(QuestionService.list());
         tableQuestions = new JTable();
         tableQuestions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
