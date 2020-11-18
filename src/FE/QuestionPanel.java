@@ -1,5 +1,11 @@
 package FE;
 
+import BE.services.QuestionService;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -8,105 +14,99 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import BE.services.QuestionService;
-
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class QuestionPanel extends JPanel {
-    HomeFrame frame;
-    QuestionTableModel tableModel;
 
-    private JButton btnCreate;
-    private JButton btnChange;
-    private JButton btnRemove;
+  Frame frame;
+  QuestionTableModel tableModel;
 
-    private JTable tableQuestions;
-    
-    public QuestionPanel(HomeFrame frame) {
-        this.frame = frame;
+  private JButton btnCreate;
+  private JButton btnChange;
+  private JButton btnRemove;
 
-        setLayout(new BorderLayout(10, 10));
+  private JTable tableQuestions;
 
-        createBtns();
-        createTable();
-    }
+  public QuestionPanel(Frame frame) {
+    this.frame = frame;
 
-    private void createTable() {
-        tableModel = new QuestionTableModel(QuestionService.list());
-        tableQuestions = new JTable();
-        tableQuestions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    setLayout(new BorderLayout(10, 10));
 
-        tableQuestions.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent event) {
-                if (!event.getValueIsAdjusting()) {
-                    if (tableQuestions.getSelectedRow() >= 0) {
-                        ablebtns();
-                    } else {
-                        disableBtns();
-                    }
-                }
-            }
+    createBtns();
+    createTable();
+  }
 
-        });
+  private void createTable() {
+    tableModel = new QuestionTableModel(QuestionService.getQuestions());
+    tableQuestions = new JTable();
+    tableQuestions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        JScrollPane scroll = new JScrollPane(tableQuestions);
+    tableQuestions.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+      @Override
+      public void valueChanged(ListSelectionEvent event) {
+        if (!event.getValueIsAdjusting()) {
+          if (tableQuestions.getSelectedRow() >= 0) {
+            ablebtns();
+          } else {
+            disableBtns();
+          }
+        }
+      }
 
-        add(scroll, BorderLayout.CENTER);
-    }
-    
-    private void createBtns() {
-        JPanel panelBtn = new JPanel();
-        FlowLayout layout = (FlowLayout) panelBtn.getLayout();
-        layout.setAlignment(FlowLayout.RIGHT);
-        
-        btnCreate = new JButton("Adicionar");
+    });
 
-        btnCreate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                // TODO chamar o método que mostra a tela de formulário de questão
-            }
-        });
+    JScrollPane scroll = new JScrollPane(tableQuestions);
 
-        panelBtn.add(btnChange);
-        
-        btnChange = new JButton("Alterar");
+    add(scroll, BorderLayout.CENTER);
+  }
 
-        btnChange.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                // TODO chamar o método que mostra a tela de formulário de questão
-            }
-        });
+  private void createBtns() {
+    JPanel panelBtn = new JPanel();
+    FlowLayout layout = (FlowLayout) panelBtn.getLayout();
+    layout.setAlignment(FlowLayout.RIGHT);
 
-        panelBtn.add(btnChange);
-        
-        btnRemove = new JButton("Remover");
+    btnCreate = new JButton("Adicionar");
 
-        btnRemove.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                // TODO aplicar os métodos de remoção
-            }
-        });
+    btnCreate.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent event) {
+        // TODO chamar o método que mostra a tela de formulário de questão
+      }
+    });
 
-        panelBtn.add(btnRemove);
-        
-        add(panelBtn, BorderLayout.NORTH);
-        
-    }
+    panelBtn.add(btnChange);
 
-    private void disableBtns() {
-        btnChange.setEnabled(false);
-        btnRemove.setEnabled(false);
-    }
-    
-    private void ablebtns() {
-        btnChange.setEnabled(true);
-        btnRemove.setEnabled(true);
-    }
+    btnChange = new JButton("Alterar");
+
+    btnChange.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent event) {
+        // TODO chamar o método que mostra a tela de formulário de questão
+      }
+    });
+
+    panelBtn.add(btnChange);
+
+    btnRemove = new JButton("Remover");
+
+    btnRemove.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent arg0) {
+        // TODO aplicar os métodos de remoção
+      }
+    });
+
+    panelBtn.add(btnRemove);
+
+    add(panelBtn, BorderLayout.NORTH);
+
+  }
+
+  private void disableBtns() {
+    btnChange.setEnabled(false);
+    btnRemove.setEnabled(false);
+  }
+
+  private void ablebtns() {
+    btnChange.setEnabled(true);
+    btnRemove.setEnabled(true);
+  }
 }
