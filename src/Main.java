@@ -17,13 +17,13 @@ public class Main {
     AnswerService answerService = new AnswerService();
     AlternativeService alternativeService = new AlternativeService();
 
-    Question question = questionService.createQuestion(1, "1", "Quanto é 2 + 2", false);
+    Question question = questionService.createQuestion("1", "1");
     Alternative alternative1 = alternativeService.createAlternative(1, question, "4", true, false);
     Alternative alternative2 = alternativeService.createAlternative(1, question, "3", false, false);
     Alternative alternative3 = alternativeService.createAlternative(1, question, "2", false, false);
     Alternative alternative4 = alternativeService.createAlternative(1, question, "5", false, false);
 
-    Question question1 = questionService.createQuestion(1, "1", "xxxx", false);
+    Question question1 = questionService.createQuestion("1", "1");
 
     System.out.println(question.toString());
 
@@ -55,7 +55,9 @@ public class Main {
 
 //   PARTE VICTOR FRONT END
     JFrame frame = null;
-    frame = new HomeFrame();
+   // frame = new HomeFrame();
+    frame = new CreatQuestFront();
     frame.setVisible(true);
+
   }
 }

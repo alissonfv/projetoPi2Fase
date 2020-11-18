@@ -7,11 +7,11 @@ public class Question {
   private String question;
   private Boolean deleted;
 
-  public Question(Integer id, String idTeacher, String question, Boolean deleted) {
+  public Question(Integer id, String idTeacher, String question) {
     this.id = id;
     this.idTeacher = idTeacher;
     this.question = question;
-    this.deleted = deleted;
+    this.deleted = false;
   }
 
   public String getQuestion() {
