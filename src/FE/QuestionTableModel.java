@@ -7,6 +7,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class QuestionTableModel extends AbstractTableModel {
+
+
     private List<Question> questions = new ArrayList<>();
     private String[] columns = new String[] {"Id", "Id do Professor", "Questão"};
 

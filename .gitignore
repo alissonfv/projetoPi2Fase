@@ -37,12 +37,13 @@ gradle-app.setting
 ##############################
 ## IntelliJ
 ##############################
-out/
+/out/*
 .idea/
 .idea_modules/
 *.iml
 *.ipr
 *.iws
+*.class
 
 ##############################
 ## Eclipse
@@ -65,7 +66,7 @@ local.properties
 ## NetBeans
 ##############################
 nbproject/private/
-build/
+./build/
 
 nbbuild/
 dist/
