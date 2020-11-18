@@ -72,14 +72,14 @@ public class QuestionPanel extends JPanel {
       }
     });
 
-    panelBtn.add(btnChange);
-
     btnChange = new JButton("Alterar");
+
+    panelBtn.add(btnChange);
 
     btnChange.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        // TODO chamar o método que mostra a tela de formulário de questão
+
       }
     });
 

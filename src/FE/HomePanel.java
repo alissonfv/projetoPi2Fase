@@ -9,13 +9,14 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class HomeFrame extends JFrame {
+public class HomePanel extends JPanel {
 
-  public HomeFrame() {
-    super("The Game");
+  private MainFrame mainFrame;
+
+  public HomePanel(MainFrame mainFrame) {
+    this.mainFrame = mainFrame;
     setMinimumSize(new Dimension(1200, 800));
     init();
   }
@@ -57,14 +58,21 @@ public class HomeFrame extends JFrame {
     panelbt.setBackground(new Color(0, 238, 224));
 
     btnCreaterQuestions = new JButton("Criar Questões");
-    btnCreaterQuestions.addActionListener(new EventClickButtom());
+    //btnCreaterQuestions.addActionListener(new EventClickButtom());
     btnCreaterQuestions.setFont(new Font("TimesRoman", 1, 24));
     btnCreaterQuestions.setForeground(new Color(5, 255, 90));
     btnCreaterQuestions.setRolloverEnabled(false);
     panelbt.add(btnCreaterQuestions);
 
     btnReadQuestions = new JButton("Ver Questões");
-    btnReadQuestions.addActionListener(new EventClickButtom());
+    btnReadQuestions.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent actionEvent) {
+        if (actionEvent.getActionCommand().equals("Ver Questões")) {
+          mainFrame.showHomePanel(new QuestionPanel(mainFrame));
+        }
+      }
+    });
     btnReadQuestions.setFont(new Font("TimesRoman", 1, 24));
     btnReadQuestions.setForeground(new Color(5, 255, 90));
     btnReadQuestions.setBackground(Color.WHITE);
@@ -73,26 +81,5 @@ public class HomeFrame extends JFrame {
 
     add(panelbt, BorderLayout.CENTER);
 
-  }
-
-  private class EventClickButtom implements ActionListener {
-
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-
-      if (actionEvent.getActionCommand().equals("Criar Questões")) {
-        System.out.println("tesste");
-        JFrame frame = null;
-        frame = new CreatQuestFront();
-        frame.setVisible(true);
-      }
-      if (actionEvent.getActionCommand().equals("Ver Questões")) {
-        System.out.println("tesste");
-        JFrame frame= null;
-        frame = new HomeFrame();
-        frame.setContentPane(new QuestionPanel(frame));
-        frame.setVisible(true);
-      }
-    }
   }
 }
