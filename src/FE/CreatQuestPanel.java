@@ -18,13 +18,12 @@ import javax.swing.*;
 public class CreatQuestPanel extends JPanel {
 
   private static final Insets FIELD_INSETS = new Insets(5, 10, 0, 0);
-  private static final int NUM_RADIOBTN = 5;
 
   private MainFrame frame;
   private Question question;
   private JButton deletebtn;
   private JButton creatbtn;
-  private JTextField textFieldQuestion;
+  private JTextArea questionTxt;
   private JTextField textFieldA;
   private JTextField textFieldB;
   private JTextField textFieldC;
@@ -49,14 +48,14 @@ public class CreatQuestPanel extends JPanel {
       @Override
       public void componentShown(ComponentEvent arg0) {
         if (question == null) {
-          textFieldQuestion.setText("");
+          questionTxt.setText("");
           textFieldA.setText("");
           textFieldB.setText("");
           textFieldC.setText("");
           textFieldD.setText("");
           textFieldE.setText("");
         } else {
-          textFieldQuestion.setText(question.getQuestion());
+          questionTxt.setText(question.getQuestion());
         }
       }
     });
@@ -73,94 +72,96 @@ public class CreatQuestPanel extends JPanel {
   private void init() {
     ActionEventHandler handler = new ActionEventHandler();
     JLabel label;
-    JSeparator separator;
-    JPanel panel;
-    JCheckBox checkBoxBtn;
 
     /**
      * Componentes de texto
      */
     label = new JLabel("NOVA QUESTÃO");
     addComponent(label, 0, 2, 1, 1);
-    separator = new JSeparator();
-    addComponent(separator, 2, 1, 3, 1);
-
+   
     label = new JLabel("Questão: ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 2, 2, 1, 1);
-    textFieldQuestion = new JTextField(2);
-    addComponent(textFieldQuestion, 3, 1, 3, 1);
+    addComponent(label, 2, 1, 1, 1);
+    questionTxt = new JTextArea(3, 10);
+    JScrollPane scroll = new JScrollPane(questionTxt);
+    addComponent(scroll, 2, 2, 2, 3);
 
     /** Alternativas */
     label = new JLabel("Alternativas: ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 4, 2, 1, 1);
+    addComponent(label, 6, 1, 1, 1);
     labelR = new JLabel("Questão Correta:");
-    addComponent(labelR, 4, 4, 1, 1);
+    addComponent(labelR, 6, 4, 1, 1);
     ButtonGroup buttonGroup = new ButtonGroup();
 
     /** Alternativa 1 */
     label = new JLabel("1) ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 5, 1, 1, 1);
+    addComponent(label, 8, 1, 1, 1);
     textFieldA = new JTextField(30);
-    addComponent(textFieldA, 5, 2, 2, 1);
+    addComponent(textFieldA, 8, 2, 2, 1);
     checkBoxA = new JCheckBox();
     buttonGroup.add(checkBoxA);
-    addComponent(checkBoxA, 5, 4, 1, 1);
+    checkBoxA.setHorizontalAlignment(JCheckBox.CENTER);
+    addComponent(checkBoxA, 8, 4, 1, 1);
 
     /** Alternativa 2 */
     label = new JLabel("2) ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 6, 1, 1, 1);
+    addComponent(label, 9, 1, 1, 1);
     textFieldB = new JTextField(2);
-    addComponent(textFieldB, 6, 2, 2, 1);
+    addComponent(textFieldB, 9, 2, 2, 1);
     checkBoxB = new JCheckBox();
     buttonGroup.add(checkBoxB);
-    addComponent(checkBoxB, 6, 4, 1, 1);
+    checkBoxB.setHorizontalAlignment(JCheckBox.CENTER);
+    addComponent(checkBoxB, 9, 4, 1, 1);
 
     /** Alternativa 3 */
     label = new JLabel("3) ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 7, 1, 1, 1);
+    addComponent(label, 10, 1, 1, 1);
     textFieldC = new JTextField(2);
-    addComponent(textFieldC, 7, 2, 2, 1);
+    addComponent(textFieldC, 10, 2, 2, 1);
     checkBoxC = new JCheckBox();
     buttonGroup.add(checkBoxC);
-    addComponent(checkBoxC, 7, 4, 1, 1);
+    checkBoxC.setHorizontalAlignment(JCheckBox.CENTER);
+    addComponent(checkBoxC, 10, 4, 1, 1);
 
     /** Alternativa 4 */
     label = new JLabel("4) ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 8, 1, 1, 1);
+    addComponent(label, 11, 1, 1, 1);
     textFieldD = new JTextField(2);
-    addComponent(textFieldD, 8, 2, 2, 1);
+    addComponent(textFieldD, 11, 2, 2, 1);
     checkBoxD = new JCheckBox();
     buttonGroup.add(checkBoxD);
-    addComponent(checkBoxD, 8, 4, 1, 1);
+    checkBoxD.setHorizontalAlignment(JCheckBox.CENTER);
+    addComponent(checkBoxD, 11, 4, 1, 1);
     
 
     /** Alternativa 5 */
     label = new JLabel("5) ");
     label.setForeground(Color.BLACK);
-    addComponent(label, 9, 1, 1, 1);
+    addComponent(label, 12, 1, 1, 1);
     textFieldE = new JTextField(2);
-    addComponent(textFieldE, 9, 2, 2, 1);
+    addComponent(textFieldE, 12, 2, 2, 1);
     checkBoxE = new JCheckBox();
     buttonGroup.add(checkBoxE);
-    addComponent(checkBoxE, 9, 4, 1, 1);
+    checkBoxE.setHorizontalAlignment(JCheckBox.CENTER);
+    addComponent(checkBoxE, 12, 4, 1, 1);
 
-
-
-    /**
-     * Componentes de Botão
-     */
+    //Adicionando Eventos no CheckBoxes
+    addListenerInBtn(checkBoxA);
+    addListenerInBtn(checkBoxB);
+    addListenerInBtn(checkBoxC);
+    addListenerInBtn(checkBoxD);
+    addListenerInBtn(checkBoxE);
 
     label = new JLabel();
-    addComponent(label, 11, 0, 1, 1);
+    addComponent(label, 14, 0, 1, 1);
     creatbtn = new JButton("Criar");
     creatbtn.addActionListener(handler);
-    addComponent(creatbtn, 11, 2, 1, 1);
+    addComponent(creatbtn, 14, 2, 1, 1);
 
     deletebtn = new JButton("Cancelar");
     deletebtn.addActionListener(new ActionListener() {
@@ -169,12 +170,10 @@ public class CreatQuestPanel extends JPanel {
         frame.showQuestionPanel();
       }
     });
-    addComponent(deletebtn, 11, 3, 1, 1);
-
-   
-    
-
+    addComponent(deletebtn, 14, 3, 1, 1);
   }
+
+
 
   private void addListenerInBtn(JCheckBox checkBox){
     checkBox.addItemListener(new ItemListener() {
@@ -211,9 +210,9 @@ public class CreatQuestPanel extends JPanel {
 
       if (event.getSource() == creatbtn) {
 
-        if (!textFieldQuestion.getText().isEmpty() & !textFieldA.getText().isEmpty() & !textFieldB.getText().isEmpty()
+        if (!questionTxt.getText().isEmpty() & !textFieldA.getText().isEmpty() & !textFieldB.getText().isEmpty()
             & !textFieldC.getText().isEmpty() & !textFieldD.getText().isEmpty() & !textFieldE.getText().isEmpty()) {
-          Question quest = new Question("1", textFieldQuestion.getText());
+          Question quest = new Question("1", questionTxt.getText());
           if (question == null) {
             // TODO FAZER A VALIDÇÃO DO RADIONBUTON
             QuestionService.createQuestion(quest);
