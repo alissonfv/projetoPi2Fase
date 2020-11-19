@@ -33,10 +33,14 @@ public class QuestionPanel extends JPanel {
     createTable();
   }
 
+  public void reload(){
+    tableModel.load(QuestionService.getQuestions());
+  }
+
   private void createTable() {
     tableModel = new QuestionTableModel(QuestionService.getQuestions());
-    tableQuestions = new JTable();
-    tableQuestions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    tableQuestions = new JTable(tableModel);
+    tableQuestions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//uma linha de cada vez
 
     tableQuestions.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
       @Override
@@ -51,6 +55,8 @@ public class QuestionPanel extends JPanel {
       }
 
     });
+
+    
 
     JScrollPane scroll = new JScrollPane(tableQuestions);
 
@@ -67,7 +73,7 @@ public class QuestionPanel extends JPanel {
     btnCreate.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        frame.showCreatQuest();
+        frame.showCreatQuest(null);
       }
     });
 

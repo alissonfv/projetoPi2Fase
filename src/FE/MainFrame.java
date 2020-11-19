@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import BE.domain.Question;
+
 public class MainFrame extends JFrame {
 
     private CardLayout layout;
@@ -45,11 +47,13 @@ public class MainFrame extends JFrame {
         // tem que ter um para cada card
     }
 
-    public void showCreatQuest() {
+    public void showCreatQuest(Question question) {
+        this.creatQuestPanel.setQuestion(question);
         this.layout.show(this.cardsPanel, CreatQuestFront.class.getName());
     }
 
 	public void showQuestionPanel() {
+        questionPanel.reload();
         this.layout.show(this.cardsPanel, QuestionPanel.class.getName());
 	}
 }

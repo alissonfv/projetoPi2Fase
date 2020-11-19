@@ -1,5 +1,6 @@
 package FE;
 
+import BE.domain.Question;
 import BE.services.QuestionService;
 
 import java.awt.Color;
@@ -8,15 +9,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.Objects;
 import javax.swing.*;
 
@@ -27,8 +23,8 @@ public class CreatQuestFront extends JPanel {
   private JButton button;
 
   private MainFrame frame;
+  private Question question;
 
-  
   private JButton deletebtn;
   private JButton creatbtn;
   private JTextField textFieldQuestion;
@@ -45,12 +41,24 @@ public class CreatQuestFront extends JPanel {
     JPanel contentPane = new JPanel();
     contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     contentPane.setBackground(Color.CYAN);
+    this.question = null;
+    addComponentListener(new ComponentAdapter() {
+      @Override
+      public void componentShown(ComponentEvent arg0) {
+        if(question == null){
+          textFieldQuestion.setText("");
+          textFieldA.setText("");
+          textFieldB.setText("");
+          textFieldC.setText("");
+          textFieldD.setText("");
+          textFieldE.setText("");
+        }else{
+          textFieldQuestion.setText(question.getQuestion());
+        }
+      }
+    });
   //  setContentPane(contentPane);
     setSize(1000, 650);
-
-  //  setResizable(false);
-   // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     layout = new GridBagLayout();
     setLayout(layout);
 
@@ -64,7 +72,7 @@ public class CreatQuestFront extends JPanel {
     JLabel label;
     JSeparator separator;
     JPanel panel;
-    JRadioButton radioButton;
+    JCheckBox checkBoxBtn;
 
     /**
      * Componentes de texto
@@ -146,12 +154,25 @@ public class CreatQuestFront extends JPanel {
     panel = new JPanel();
     ButtonGroup buttonGroup = new ButtonGroup();
     for (int i = 1; i <= NUM_RADIOBTN; i++) {
-      radioButton = new JRadioButton("" + i);
-      buttonGroup.add(radioButton);
-      panel.add(radioButton);
+      checkBoxBtn = new JCheckBox("" + i);
+      buttonGroup.add(checkBoxBtn);
+      checkBoxBtn.addItemListener(new ItemListener(){
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+          if(e.getStateChange() == ItemEvent.SELECTED){
+              System.out.println("Item selecionado");
+          }
+        }
+      });
+      panel.add(checkBoxBtn);
     }
+   
     addComponent(panel, 10, 1, 3, 1);
 
+  }
+
+  public void setQuestion(Question question){
+    this.question = question;
   }
 
   private void addComponent(JComponent comp, int row, int col, int width, int height) {
@@ -184,6 +205,7 @@ public class CreatQuestFront extends JPanel {
           JOptionPane.showMessageDialog(CreatQuestFront.this,
                   "Preencha todos os campos","Erro ao criar questão", JOptionPane.INFORMATION_MESSAGE);
         }
+        frame.showQuestionPanel();
       }
     }
   } // fim da classe ActionEventHandler

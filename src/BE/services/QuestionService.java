@@ -32,7 +32,5 @@ public class QuestionService {
     System.out.println("Questão removida , Id = " + question.getId());
   }
 
-  public static List<Question> list() {
-    return questions;
-  }
+  
 }

@@ -61,7 +61,7 @@ public class HomePanel extends JPanel {
     btnCreaterQuestions.addActionListener(new ActionListener(){
       @Override
       public void actionPerformed(ActionEvent arg0) {
-        mainFrame.showCreatQuest();        
+        mainFrame.showCreatQuest(null);        
       }
     });
     btnCreaterQuestions.setFont(new Font("TimesRoman", 1, 24));
