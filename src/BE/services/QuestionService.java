@@ -6,10 +6,12 @@ import java.util.List;
 
 public class QuestionService {
 
+  private static int index = 0;
   private static List<Question> questions = new ArrayList<>();
 
-  public static Question createQuestion(Integer id, String idTeacher, String question, Boolean deleted) {
-    Question question1 = new Question(id, idTeacher, question, deleted);
+  public static Question createQuestion(String idTeacher, String question) {
+    index = index++;
+    Question question1 = new Question(index, idTeacher, question);
     questions.add(question1);
     return question1;
   }
