@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 import javax.swing.*;
 
-public class CreatQuestFront extends JFrame {
+public class CreatQuestFront extends JPanel {
 
   private static final Insets FIELD_INSETS = new Insets(5, 10, 0, 0);
   private static final int NUM_RADIOBTN = 5;
@@ -26,16 +26,15 @@ public class CreatQuestFront extends JFrame {
   private GridBagConstraints constraints;
 
   public CreatQuestFront() {
-    super("Demo Input Fields");
 
     JPanel contentPane = new JPanel();
     contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     contentPane.setBackground(Color.CYAN);
-    setContentPane(contentPane);
+  //  setContentPane(contentPane);
     setSize(1000, 650);
 
-    setResizable(false);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  //  setResizable(false);
+   // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     layout = new GridBagLayout();
     setLayout(layout);

@@ -16,10 +16,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-public class FrontQuest extends JFrame {
+public class FrontQuest extends JPanel {
 
   public FrontQuest() {
-    super("The Game");
 
     Front();
   }
@@ -28,7 +27,7 @@ public class FrontQuest extends JFrame {
     JPanel buttonPanel, buttonClose;
     JButton buttons[], button, close;
     JLabel label;
-    Container c = getContentPane();
+   // Container c = getContentPane();
 
     //BOT�ES DE ALTERNATIVA
     buttonPanel = new JPanel();
@@ -39,7 +38,7 @@ public class FrontQuest extends JFrame {
       buttons[i] = new JButton("Alternativa " + (i + 1) + "  =   " + (i + 3) + " peda�os ");
       buttonPanel.add(buttons[i]);
       buttonPanel.setLayout(new GridLayout(5, 5, 15, 5));
-      c.add(buttonPanel, BorderLayout.SOUTH);
+     // c.add(buttonPanel, BorderLayout.SOUTH);
     }
 
     //PAINEL DE FUNDO
