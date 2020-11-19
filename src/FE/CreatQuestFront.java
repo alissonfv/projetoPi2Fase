@@ -28,7 +28,8 @@ public class CreatQuestFront extends JPanel {
 
   private MainFrame frame;
 
-
+  
+  private JButton deletebtn;
   private JButton creatbtn;
   private JTextField textFieldQuestion;
   private JTextField textFieldA;
@@ -130,6 +131,15 @@ public class CreatQuestFront extends JPanel {
     creatbtn = new JButton("Criar");
     creatbtn.addActionListener(handler);
     addComponent(creatbtn, 11, 2, 1, 1);
+
+    deletebtn = new JButton("Cancelar");
+    deletebtn.addActionListener(new ActionListener(){
+      @Override
+      public void actionPerformed(ActionEvent arg0) {
+        frame.showQuestionPanel(); 
+      }
+    });
+    addComponent(deletebtn, 11, 3, 1, 1);
 
     label = new JLabel("Questão Correta:");
     addComponent(label, 10, 0, 1, 1);

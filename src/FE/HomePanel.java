@@ -58,7 +58,12 @@ public class HomePanel extends JPanel {
     panelbt.setBackground(new Color(0, 238, 224));
 
     btnCreaterQuestions = new JButton("Criar Questões");
-    //btnCreaterQuestions.addActionListener(new EventClickButtom());
+    btnCreaterQuestions.addActionListener(new ActionListener(){
+      @Override
+      public void actionPerformed(ActionEvent arg0) {
+        mainFrame.showCreatQuest();        
+      }
+    });
     btnCreaterQuestions.setFont(new Font("TimesRoman", 1, 24));
     btnCreaterQuestions.setForeground(new Color(5, 255, 90));
     btnCreaterQuestions.setRolloverEnabled(false);

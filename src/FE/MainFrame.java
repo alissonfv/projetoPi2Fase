@@ -36,7 +36,6 @@ public class MainFrame extends JFrame {
         this.questionPanel = new QuestionPanel(this);
         this.cardsPanel.add(this.questionPanel, QuestionPanel.class.getName());// criar cards e adicionar dentro dos
                                                                                // panel
-
         this.creatQuestPanel = new CreatQuestFront(this);
         this.cardsPanel.add(this.creatQuestPanel, CreatQuestFront.class.getName());
     }
@@ -49,4 +48,8 @@ public class MainFrame extends JFrame {
     public void showCreatQuest() {
         this.layout.show(this.cardsPanel, CreatQuestFront.class.getName());
     }
+
+	public void showQuestionPanel() {
+        this.layout.show(this.cardsPanel, QuestionPanel.class.getName());
+	}
 }
