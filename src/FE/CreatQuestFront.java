@@ -8,6 +8,15 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import java.util.Objects;
 import javax.swing.*;
 
@@ -15,6 +24,11 @@ public class CreatQuestFront extends JPanel {
 
   private static final Insets FIELD_INSETS = new Insets(5, 10, 0, 0);
   private static final int NUM_RADIOBTN = 5;
+  private JButton button;
+
+  private MainFrame frame;
+
+
   private JButton creatbtn;
   private JTextField textFieldQuestion;
   private JTextField textFieldA;
@@ -25,8 +39,8 @@ public class CreatQuestFront extends JPanel {
   private GridBagLayout layout;
   private GridBagConstraints constraints;
 
-  public CreatQuestFront() {
-
+  public CreatQuestFront(MainFrame frame) {
+    this.frame = frame;
     JPanel contentPane = new JPanel();
     contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     contentPane.setBackground(Color.CYAN);
