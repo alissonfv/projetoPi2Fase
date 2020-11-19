@@ -10,7 +10,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -23,12 +22,14 @@ public class CreatQuestFront extends JPanel {
   private static final int NUM_RADIOBTN = 5;
   private JButton button;
 
+  private MainFrame frame;
+
 
   private GridBagLayout layout;
   private GridBagConstraints constraints;
 
-  public CreatQuestFront() {
-
+  public CreatQuestFront(MainFrame frame) {
+    this.frame = frame;
     JPanel contentPane = new JPanel();
     contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     contentPane.setBackground(Color.CYAN);

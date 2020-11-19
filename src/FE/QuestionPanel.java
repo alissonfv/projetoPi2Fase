@@ -3,7 +3,6 @@ package FE;
 import BE.services.QuestionService;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -16,7 +15,7 @@ import javax.swing.event.ListSelectionListener;
 
 public class QuestionPanel extends JPanel {
 
-  Frame frame;
+  MainFrame frame;
   QuestionTableModel tableModel;
 
   private JButton btnCreate;
@@ -25,7 +24,7 @@ public class QuestionPanel extends JPanel {
 
   private JTable tableQuestions;
 
-  public QuestionPanel(Frame frame) {
+  public QuestionPanel(MainFrame frame) {
     this.frame = frame;
 
     setLayout(new BorderLayout(10, 10));
@@ -68,9 +67,11 @@ public class QuestionPanel extends JPanel {
     btnCreate.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        // TODO chamar o método que mostra a tela de formulário de questão
+        frame.showCreatQuest();
       }
     });
+
+    panelBtn.add(btnCreate);
 
     btnChange = new JButton("Alterar");
 
