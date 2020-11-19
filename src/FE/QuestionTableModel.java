@@ -65,5 +65,14 @@ public class QuestionTableModel extends AbstractTableModel {
     public void load(List<Question> questions) {
         this.questions = questions;
         fireTableDataChanged();
+    }
+    
+    public Question getQuestion(int rowIndex){
+        return questions.get(rowIndex);
+    }
+
+	public void delete(Question quest) {
+        questions.remove(quest);
+        fireTableDataChanged();
 	}
 }

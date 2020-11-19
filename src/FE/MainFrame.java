@@ -12,7 +12,7 @@ public class MainFrame extends JFrame {
     private JPanel cardsPanel;
     private HomePanel homePanel;
     private QuestionPanel questionPanel;
-    private CreatQuestFront creatQuestPanel;
+    private CreatQuestPanel creatQuestPanel;
 
     public MainFrame() {
         this.layout = new CardLayout();
@@ -38,8 +38,8 @@ public class MainFrame extends JFrame {
         this.questionPanel = new QuestionPanel(this);
         this.cardsPanel.add(this.questionPanel, QuestionPanel.class.getName());// criar cards e adicionar dentro dos
                                                                                // panel
-        this.creatQuestPanel = new CreatQuestFront(this);
-        this.cardsPanel.add(this.creatQuestPanel, CreatQuestFront.class.getName());
+        this.creatQuestPanel = new CreatQuestPanel(this);
+        this.cardsPanel.add(this.creatQuestPanel, CreatQuestPanel.class.getName());
     }
 
     public void showHomePanel(JPanel jPanel) {
@@ -49,7 +49,7 @@ public class MainFrame extends JFrame {
 
     public void showCreatQuest(Question question) {
         this.creatQuestPanel.setQuestion(question);
-        this.layout.show(this.cardsPanel, CreatQuestFront.class.getName());
+        this.layout.show(this.cardsPanel, CreatQuestPanel.class.getName());
     }
 
 	public void showQuestionPanel() {

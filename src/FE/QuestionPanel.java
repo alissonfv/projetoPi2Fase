@@ -1,11 +1,13 @@
 package FE;
 
+import BE.domain.Question;
 import BE.services.QuestionService;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -86,7 +88,7 @@ public class QuestionPanel extends JPanel {
     btnChange.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-
+        frame.showCreatQuest(tableModel.getQuestion(tableQuestions.getSelectedRow()));
       }
     });
 
@@ -97,7 +99,12 @@ public class QuestionPanel extends JPanel {
     btnRemove.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent arg0) {
-        // TODO aplicar os métodos de remoção
+        Question quest = tableModel.getQuestion(tableQuestions.getSelectedRow());
+        int answer = JOptionPane.showConfirmDialog(QuestionPanel.this, "Você deseja remover essa tarefa ?", "The Game", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) ;
+        if(answer == JOptionPane.YES_OPTION){
+          QuestionService.deleteQuestion(quest);
+          tableModel.delete(quest);
+        }
       }
     });
 

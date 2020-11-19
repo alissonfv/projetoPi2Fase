@@ -7,8 +7,7 @@ public class Question {
   private String question;
   private Boolean deleted;
 
-  public Question(Integer id, String idTeacher, String question) {
-    this.id = id;
+  public Question(String idTeacher, String question) {
     this.idTeacher = idTeacher;
     this.question = question;
     this.deleted = false;

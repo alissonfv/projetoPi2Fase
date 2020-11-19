@@ -9,11 +9,9 @@ public class QuestionService {
   private static int index = 0;
   private static List<Question> questions = new ArrayList<>();
 
-  public static Question createQuestion(String idTeacher, String question) {
-    index = index++;
-    Question question1 = new Question(index, idTeacher, question);
-    questions.add(question1);
-    return question1;
+  public static void createQuestion(Question question) {
+    question.setId(++index);
+    questions.add(question);
   }
 
   public static List<Question> getQuestions() {
