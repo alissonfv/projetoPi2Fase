@@ -75,7 +75,7 @@ public class QuestionPanel extends JPanel {
     btnCreate.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        frame.showCreatQuest(null);
+        frame.showObjectiveCreatQuest(null);
       }
     });
 
@@ -88,7 +88,7 @@ public class QuestionPanel extends JPanel {
     btnChange.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        frame.showCreatQuest(tableModel.getQuestion(tableQuestions.getSelectedRow()));
+        frame.showObjectiveCreatQuest(tableModel.getQuestion(tableQuestions.getSelectedRow()));
       }
     });
 
